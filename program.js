@@ -1,24 +1,10 @@
-var fs = require('fs');
+var fs=require('fs')
 
-var filepath = process.argv[2];
-//console.log(filepath);
-var buffer = fs.readFileSync(filepath);
+var contents = fs.readFileSync(process.argv[2], 'utf8')
+var lines = contents.toString().split('\n').length - 1
 
-//console.log(buffer);
-//console.log(buffer.toString());
+console.log(lines)
 
-var line = 0;
-
-var strBuffer = buffer.toString();
-
-var bufArray = strBuffer.split('\n');
-
-for(var i=0; i<bufArray.length; i++){
-    if( bufArray[i] !== ''){
-	line++;
-    }
-}
-console.log(bufArray.length-1);
 
 
 
