@@ -6,13 +6,11 @@ var filter = process.argv[3];
 
 fs.readdir(filepath, function(err, lists){
     if(err) throw err;
-
-    for(var i=0; i<lists.length; i++){
-	var pathString = path.extname(lists[i]);
-	if( pathString === ('.'+filter) ){
-	    console.log(lists[i]);
-	}
-    }
     
+    lists.forEach(function(file){
+	if( path.extname(file) === '.'+filter){
+	    console.log(file);
+	}
+    });
 });
 
