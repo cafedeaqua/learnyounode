@@ -1,7 +1,25 @@
-var sum = 0;
-for(var i=2; i<process.argv.length; i++){
-    sum += Number(process.argv[i]);
-}
+var fs = require('fs');
 
-console.log(sum);
+var filepath = process.argv[2];
+//console.log(filepath);
+var buffer = fs.readFileSync(filepath);
+
+//console.log(buffer);
+//console.log(buffer.toString());
+
+var line = 0;
+
+var strBuffer = buffer.toString();
+
+var bufArray = strBuffer.split('\n');
+
+for(var i=0; i<bufArray.length; i++){
+    if( bufArray[i] !== ''){
+	line++;
+    }
+}
+console.log(bufArray.length-1);
+
+
+
 
